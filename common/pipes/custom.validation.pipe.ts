@@ -6,7 +6,6 @@ import { ZodType } from 'zod';
 export class CustomValidationPipe implements PipeTransform {
     constructor(private  schema: ZodType) {}
   transform(value: any, metadata: ArgumentMetadata) {
-    console.log('from pipe:', value);
    let result =this.schema.safeParse(value);
    if(!result.success){
     throw new BadRequestException({
